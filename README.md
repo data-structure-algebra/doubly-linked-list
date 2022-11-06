@@ -1,15 +1,18 @@
 :left_right_arrow: [@data-structure-algebra/doubly-linked-list](https://data-structure-algebra.github.io/doubly-linked-list)
 ==
 
-Doubly linked list for JavaScript.
+Doubly linked lists for JavaScript.
 See [docs](https://data-structure-algebra.github.io/doubly-linked-list/index.html).
-
-> :building_construction: Caveat emptor! This is work in progress. Code may be
-> working. Documentation may be present. Coherence may be. Maybe.
+Parent is [js-data-structures](https://github.com/make-github-pseudonymous-again/js-data-structures).
 
 > :warning: Depending on your environment, the code may require
 > `regeneratorRuntime` to be defined, for instance by importing
 > [regenerator-runtime/runtime](https://www.npmjs.com/package/regenerator-runtime).
+
+```js
+import {from} from '@data-structure-algebra/doubly-linked-list';
+let list = from('abc');
+```
 
 [![License](https://img.shields.io/github/license/data-structure-algebra/doubly-linked-list.svg)](https://raw.githubusercontent.com/data-structure-algebra/doubly-linked-list/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/@data-structure-algebra/doubly-linked-list.svg)](https://www.npmjs.org/package/@data-structure-algebra/doubly-linked-list)

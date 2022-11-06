@@ -66,7 +66,7 @@
     "test:dist": "npm run test:modern && npm run test:module && npm run test:cjs",
     "test:modern": "IMPORT_MAP_PATH=test/import-maps/dist/index.modern.json npm run test-cmd",
     "test:module": "IMPORT_MAP_PATH=test/import-maps/dist/index.module.json npm run test-cmd",
-    "test:src": "IMPORT_MAP_PATH=test/import-maps/src/index.json npm run test-cmd"
+    "test:src": "IMPORT_MAP_PATH=test/import-maps/src/index.json npm run test-cmd --"
   },
   "dependencies": {},
   "devDependencies": {
@@ -75,6 +75,9 @@
     "@babel/plugin-transform-for-of": "7.18.8",
     "@babel/preset-env": "7.19.4",
     "@commitlint/cli": "17.1.2",
+    "@iterable-iterator/list": "^1.0.1",
+    "@iterable-iterator/map": "^1.0.1",
+    "@iterable-iterator/range": "^2.1.0",
     "@js-library/commitlint-config": "0.0.4",
     "@node-loader/babel": "2.0.1",
     "@node-loader/core": "2.0.0",
@@ -208,16 +211,9 @@
       "unicorn"
     ],
     "rules": {
+      "camelcase": "off",
       "unicorn/prefer-node-protocol": "off",
-      "unicorn/filename-case": [
-        "error",
-        {
-          "cases": {
-            "camelCase": true,
-            "pascalCase": true
-          }
-        }
-      ]
+      "unicorn/filename-case": "off"
     },
     "overrides": [
       {
