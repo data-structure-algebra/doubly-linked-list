@@ -9,12 +9,16 @@ import _split from './_split.js';
  * @param {Node} z Node to split at.
  */
 export default function split(x, z) {
-	assert(x instanceof Node);
-	assert(z instanceof Node);
 	if (x === z) {
 		return [null, x];
 	}
 
+	assert(x instanceof Node);
+	if (z === null) {
+		return [x, null];
+	}
+
+	assert(z instanceof Node);
 	_split(z);
 	return [x, z];
 }
