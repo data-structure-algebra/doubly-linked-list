@@ -1,7 +1,7 @@
 {
-  "coverage": "96.77%",
-  "expectCount": 31,
-  "actualCount": 30,
+  "coverage": "97.36%",
+  "expectCount": 38,
+  "actualCount": 37,
   "files": {
     "src/Node.js": {
       "expectCount": 1,
@@ -9,6 +9,31 @@
       "undocumentLines": []
     },
     "src/_concat.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/_erase.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/_extend.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/_insertAfter.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/_insertBefore.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/_insertBetween.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
@@ -34,6 +59,11 @@
       "undocumentLines": []
     },
     "src/_pop.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/_push.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
@@ -86,6 +116,11 @@
       "undocumentLines": []
     },
     "src/_split.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/_unshift.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []

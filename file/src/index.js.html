@@ -31,11 +31,17 @@
     
   <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Node">Node</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_concat">_concat</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_erase">_erase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_extend">_extend</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_insertAfter">_insertAfter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_insertBefore">_insertBefore</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_insertBetween">_insertBetween</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_iter">_iter</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_iter_fast">_iter_fast</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_last">_last</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_len">_len</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_pop">_pop</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_push">_push</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_remove">_remove</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_rotate_left">_rotate_left</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_rotate_left_modulo">_rotate_left_modulo</a></span></span></li>
@@ -46,6 +52,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_rotate_to">_rotate_to</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_shift">_shift</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_split">_split</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_unshift">_unshift</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-concat">concat</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-empty">empty</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-from">from</a></span></span></li>
@@ -67,11 +74,17 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/index.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">export {default as Node} from &apos;./Node.js&apos;;
 export {default as _concat} from &apos;./_concat.js&apos;;
+export {default as _erase} from &apos;./_erase.js&apos;;
+export {default as _extend} from &apos;./_extend.js&apos;;
+export {default as _insertAfter} from &apos;./_insertAfter.js&apos;;
+export {default as _insertBefore} from &apos;./_insertBefore.js&apos;;
+export {default as _insertBetween} from &apos;./_insertBetween.js&apos;;
 export {default as _iter} from &apos;./_iter.js&apos;;
 export {default as _iter_fast} from &apos;./_iter_fast.js&apos;;
 export {default as _last} from &apos;./_last.js&apos;;
 export {default as _len} from &apos;./_len.js&apos;;
 export {default as _pop} from &apos;./_pop.js&apos;;
+export {default as _push} from &apos;./_push.js&apos;;
 export {default as _remove} from &apos;./_remove.js&apos;;
 export {default as _rotate_left} from &apos;./_rotate_left.js&apos;;
 export {default as _rotate_left_modulo} from &apos;./_rotate_left_modulo.js&apos;;
@@ -82,6 +95,7 @@ export {default as _rotate_right_unknown_length} from &apos;./_rotate_right_unkn
 export {default as _rotate_to} from &apos;./_rotate_to.js&apos;;
 export {default as _shift} from &apos;./_shift.js&apos;;
 export {default as _split} from &apos;./_split.js&apos;;
+export {default as _unshift} from &apos;./_unshift.js&apos;;
 export {default as concat} from &apos;./concat.js&apos;;
 export {default as empty} from &apos;./empty.js&apos;;
 export {default as from} from &apos;./from.js&apos;;

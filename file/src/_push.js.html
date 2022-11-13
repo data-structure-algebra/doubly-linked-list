@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/values.js | @data-structure-algebra/doubly-linked-list</title>
+  <title data-ice="title">src/_push.js | @data-structure-algebra/doubly-linked-list</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -71,22 +71,24 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/values.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">src/_push.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import assert from &apos;assert&apos;;
-import _iter_fast from &apos;./_iter_fast.js&apos;;
 import Node from &apos;./Node.js&apos;;
 
 /**
- * Generator of nodes in list in order.
+ * Push value to list.
  *
- * @param {Node} first First node of the list (can be null).
- * @return {IterableIterator&lt;any&gt;}
+ * @param {Node} z Last node of first input list (can be null).
+ * @param {any} value Value to push.
+ * @return {Node} The node at the front of the list (new node if empty, input
+ * node otherwise).
  */
-export default function* values(first) {
-	assert(first === null || first instanceof Node);
-	if (first !== null) {
-		for (const x of _iter_fast(first)) yield x.value;
-	}
+export default function _push(z, value) {
+	assert(z instanceof Node);
+	assert(z.next === null);
+	const y = new Node(value, z, null);
+	z.next = y;
+	return y;
 }
 </code></pre>
 

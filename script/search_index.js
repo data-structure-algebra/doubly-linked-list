@@ -12,6 +12,36 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@data-structure-algebra/doubly-linked-list/src/_erase.js~_erase",
+    "function/index.html#static-function-_erase",
+    "<span>_erase</span> <span class=\"search-result-import-path\">@data-structure-algebra/doubly-linked-list/src/_erase.js</span>",
+    "function"
+  ],
+  [
+    "@data-structure-algebra/doubly-linked-list/src/_extend.js~_extend",
+    "function/index.html#static-function-_extend",
+    "<span>_extend</span> <span class=\"search-result-import-path\">@data-structure-algebra/doubly-linked-list/src/_extend.js</span>",
+    "function"
+  ],
+  [
+    "@data-structure-algebra/doubly-linked-list/src/_insertafter.js~_insertafter",
+    "function/index.html#static-function-_insertAfter",
+    "<span>_insertAfter</span> <span class=\"search-result-import-path\">@data-structure-algebra/doubly-linked-list/src/_insertAfter.js</span>",
+    "function"
+  ],
+  [
+    "@data-structure-algebra/doubly-linked-list/src/_insertbefore.js~_insertbefore",
+    "function/index.html#static-function-_insertBefore",
+    "<span>_insertBefore</span> <span class=\"search-result-import-path\">@data-structure-algebra/doubly-linked-list/src/_insertBefore.js</span>",
+    "function"
+  ],
+  [
+    "@data-structure-algebra/doubly-linked-list/src/_insertbetween.js~_insertbetween",
+    "function/index.html#static-function-_insertBetween",
+    "<span>_insertBetween</span> <span class=\"search-result-import-path\">@data-structure-algebra/doubly-linked-list/src/_insertBetween.js</span>",
+    "function"
+  ],
+  [
     "@data-structure-algebra/doubly-linked-list/src/_iter.js~_iter",
     "function/index.html#static-function-_iter",
     "<span>_iter</span> <span class=\"search-result-import-path\">@data-structure-algebra/doubly-linked-list/src/_iter.js</span>",
@@ -39,6 +69,12 @@ window.esdocSearchIndex = [
     "@data-structure-algebra/doubly-linked-list/src/_pop.js~_pop",
     "function/index.html#static-function-_pop",
     "<span>_pop</span> <span class=\"search-result-import-path\">@data-structure-algebra/doubly-linked-list/src/_pop.js</span>",
+    "function"
+  ],
+  [
+    "@data-structure-algebra/doubly-linked-list/src/_push.js~_push",
+    "function/index.html#static-function-_push",
+    "<span>_push</span> <span class=\"search-result-import-path\">@data-structure-algebra/doubly-linked-list/src/_push.js</span>",
     "function"
   ],
   [
@@ -99,6 +135,12 @@ window.esdocSearchIndex = [
     "@data-structure-algebra/doubly-linked-list/src/_split.js~_split",
     "function/index.html#static-function-_split",
     "<span>_split</span> <span class=\"search-result-import-path\">@data-structure-algebra/doubly-linked-list/src/_split.js</span>",
+    "function"
+  ],
+  [
+    "@data-structure-algebra/doubly-linked-list/src/_unshift.js~_unshift",
+    "function/index.html#static-function-_unshift",
+    "<span>_unshift</span> <span class=\"search-result-import-path\">@data-structure-algebra/doubly-linked-list/src/_unshift.js</span>",
     "function"
   ],
   [
@@ -480,6 +522,36 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/_erase.js",
+    "file/src/_erase.js.html",
+    "src/_erase.js",
+    "file"
+  ],
+  [
+    "src/_extend.js",
+    "file/src/_extend.js.html",
+    "src/_extend.js",
+    "file"
+  ],
+  [
+    "src/_insertafter.js",
+    "file/src/_insertAfter.js.html",
+    "src/_insertAfter.js",
+    "file"
+  ],
+  [
+    "src/_insertbefore.js",
+    "file/src/_insertBefore.js.html",
+    "src/_insertBefore.js",
+    "file"
+  ],
+  [
+    "src/_insertbetween.js",
+    "file/src/_insertBetween.js.html",
+    "src/_insertBetween.js",
+    "file"
+  ],
+  [
     "src/_iter.js",
     "file/src/_iter.js.html",
     "src/_iter.js",
@@ -507,6 +579,12 @@ window.esdocSearchIndex = [
     "src/_pop.js",
     "file/src/_pop.js.html",
     "src/_pop.js",
+    "file"
+  ],
+  [
+    "src/_push.js",
+    "file/src/_push.js.html",
+    "src/_push.js",
     "file"
   ],
   [
@@ -567,6 +645,12 @@ window.esdocSearchIndex = [
     "src/_split.js",
     "file/src/_split.js.html",
     "src/_split.js",
+    "file"
+  ],
+  [
+    "src/_unshift.js",
+    "file/src/_unshift.js.html",
+    "src/_unshift.js",
     "file"
   ],
   [

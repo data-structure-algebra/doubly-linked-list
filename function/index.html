@@ -31,11 +31,17 @@
     
   <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Node">Node</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_concat">_concat</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_erase">_erase</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_extend">_extend</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_insertAfter">_insertAfter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_insertBefore">_insertBefore</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_insertBetween">_insertBetween</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_iter">_iter</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_iter_fast">_iter_fast</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_last">_last</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_len">_len</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_pop">_pop</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_push">_push</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_remove">_remove</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_rotate_left">_rotate_left</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_rotate_left_modulo">_rotate_left_modulo</a></span></span></li>
@@ -46,6 +52,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_rotate_to">_rotate_to</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_shift">_shift</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_split">_split</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_unshift">_unshift</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-concat">concat</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-empty">empty</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-from">from</a></span></span></li>
@@ -83,7 +90,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-Node">Node</a></span></span><span class="code" data-ice="signature">(value: <span>any</span>)</span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-Node">Node</a></span></span><span class="code" data-ice="signature">(value: <span>any</span>, prev: <span><a href="function/index.html#static-function-Node">Node</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span>, next: <span><a href="function/index.html#static-function-Node">Node</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span>)</span>
         </p>
       </div>
       <div>
@@ -460,7 +467,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-unshift">unshift</a></span></span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="function/index.html#static-function-Node">Node</a></span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-unshift">unshift</a></span></span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span>any</span>): <span><a href="function/index.html#static-function-Node">Node</a></span></span>
         </p>
       </div>
       <div>
@@ -531,6 +538,151 @@
         
         
         <div data-ice="description"><p>Concatenate two input lists.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-_erase">_erase</a></span></span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, y: <span><a href="function/index.html#static-function-Node">Node</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Erase range [x, y) from list.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-_extend">_extend</a></span></span><span class="code" data-ice="signature">(z: <span><a href="function/index.html#static-function-Node">Node</a></span>, iterable: <span>Iterable</span>): <span><a href="function/index.html#static-function-Node">Node</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Extend a list with an iterable.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-_insertAfter">_insertAfter</a></span></span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span>any</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>_insertAfter.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-_insertBefore">_insertBefore</a></span></span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span>any</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>_insertBefore.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-_insertBetween">_insertBetween</a></span></span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, y: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span>any</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>_insertBetween.</p>
 </div>
       </div>
     </td>
@@ -676,6 +828,35 @@
         
         
         <div data-ice="description"><p>Removes last <span><a href="function/index.html#static-function-Node">Node</a></span> from a non-empty list.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-_push">_push</a></span></span><span class="code" data-ice="signature">(z: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span>any</span>): <span><a href="function/index.html#static-function-Node">Node</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Push value to list.</p>
 </div>
       </div>
     </td>
@@ -973,6 +1154,35 @@
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-_unshift">_unshift</a></span></span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span>any</span>): <span><a href="function/index.html#static-function-Node">Node</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Unshift value to list.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -986,15 +1196,15 @@
     
     
     
-    <span class="code" data-ice="name">Node</span><span class="code" data-ice="signature">(value: <span>any</span>)</span>
+    <span class="code" data-ice="name">Node</span><span class="code" data-ice="signature">(value: <span>any</span>, prev: <span><a href="function/index.html#static-function-Node">Node</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span>, next: <span><a href="function/index.html#static-function-Node">Node</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/Node.js.html#lineNumber7">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/Node.js.html#lineNumber10">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Node from &apos;<span><a href="file/src/Node.js.html#lineNumber7">@data-structure-algebra/doubly-linked-list/src/Node.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Node from &apos;<span><a href="file/src/Node.js.html#lineNumber10">@data-structure-algebra/doubly-linked-list/src/Node.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Base node class.</p>
@@ -1013,6 +1223,20 @@
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">value</td>
       <td data-ice="type" class="code"><span>any</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The value to hold.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">prev</td>
+      <td data-ice="type" class="code"><span><a href="function/index.html#static-function-Node">Node</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The value to hold.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">next</td>
+      <td data-ice="type" class="code"><span><a href="function/index.html#static-function-Node">Node</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>The value to hold.</p>
 </td>
@@ -1982,15 +2206,15 @@ Rotate left n steps if n is negative.</p>
     
     
     
-    <span class="code" data-ice="name">unshift</span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="function/index.html#static-function-Node">Node</a></span></span>
+    <span class="code" data-ice="name">unshift</span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span>any</span>): <span><a href="function/index.html#static-function-Node">Node</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/unshift.js.html#lineNumber12">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/unshift.js.html#lineNumber11">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import unshift from &apos;<span><a href="file/src/unshift.js.html#lineNumber12">@data-structure-algebra/doubly-linked-list/src/unshift.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import unshift from &apos;<span><a href="file/src/unshift.js.html#lineNumber11">@data-structure-algebra/doubly-linked-list/src/unshift.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Unshift value to list.</p>
@@ -2015,7 +2239,7 @@ Rotate left n steps if n is negative.</p>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">value</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="type" class="code"><span>any</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>Value to unshift.</p>
 </td>
@@ -2182,6 +2406,395 @@ Rotate left n steps if n is negative.</p>
 </div>
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-_erase">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_erase</span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, y: <span><a href="function/index.html#static-function-Node">Node</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/_erase.js.html#lineNumber11">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import _erase from &apos;<span><a href="file/src/_erase.js.html#lineNumber11">@data-structure-algebra/doubly-linked-list/src/_erase.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>Erase range [x, y) from list. Range cannot be empty.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">x</td>
+      <td data-ice="type" class="code"><span><a href="function/index.html#static-function-Node">Node</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Inclusive beginning of range to erase.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">y</td>
+      <td data-ice="type" class="code"><span><a href="function/index.html#static-function-Node">Node</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Exclusive end of range to erase.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-_extend">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_extend</span><span class="code" data-ice="signature">(z: <span><a href="function/index.html#static-function-Node">Node</a></span>, iterable: <span>Iterable</span>): <span><a href="function/index.html#static-function-Node">Node</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/_extend.js.html#lineNumber12">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import _extend from &apos;<span><a href="file/src/_extend.js.html#lineNumber12">@data-structure-algebra/doubly-linked-list/src/_extend.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>Extend a list with an iterable.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">z</td>
+      <td data-ice="type" class="code"><span><a href="function/index.html#static-function-Node">Node</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The last node of the list to extend.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">iterable</td>
+      <td data-ice="type" class="code"><span>Iterable</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The input iterable.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="function/index.html#static-function-Node">Node</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>Last node of the extended list.</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-_insertAfter">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_insertAfter</span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span>any</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/_insertAfter.js.html#lineNumber11">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import _insertAfter from &apos;<span><a href="file/src/_insertAfter.js.html#lineNumber11">@data-structure-algebra/doubly-linked-list/src/_insertAfter.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>_insertAfter.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">x</td>
+      <td data-ice="type" class="code"><span><a href="function/index.html#static-function-Node">Node</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">value</td>
+      <td data-ice="type" class="code"><span>any</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-_insertBefore">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_insertBefore</span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span>any</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/_insertBefore.js.html#lineNumber11">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import _insertBefore from &apos;<span><a href="file/src/_insertBefore.js.html#lineNumber11">@data-structure-algebra/doubly-linked-list/src/_insertBefore.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>_insertBefore.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">x</td>
+      <td data-ice="type" class="code"><span><a href="function/index.html#static-function-Node">Node</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">value</td>
+      <td data-ice="type" class="code"><span>any</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-_insertBetween">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_insertBetween</span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, y: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span>any</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/_insertBetween.js.html#lineNumber11">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import _insertBetween from &apos;<span><a href="file/src/_insertBetween.js.html#lineNumber11">@data-structure-algebra/doubly-linked-list/src/_insertBetween.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>_insertBetween.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">x</td>
+      <td data-ice="type" class="code"><span><a href="function/index.html#static-function-Node">Node</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">y</td>
+      <td data-ice="type" class="code"><span><a href="function/index.html#static-function-Node">Node</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">value</td>
+      <td data-ice="type" class="code"><span>any</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 
@@ -2576,6 +3189,88 @@ comes next in the iteration.</p>
   
 </div>
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-_push">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_push</span><span class="code" data-ice="signature">(z: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span>any</span>): <span><a href="function/index.html#static-function-Node">Node</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/_push.js.html#lineNumber12">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import _push from &apos;<span><a href="file/src/_push.js.html#lineNumber12">@data-structure-algebra/doubly-linked-list/src/_push.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>Push value to list.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">z</td>
+      <td data-ice="type" class="code"><span><a href="function/index.html#static-function-Node">Node</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Last node of first input list (can be null).</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">value</td>
+      <td data-ice="type" class="code"><span>any</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Value to push.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="function/index.html#static-function-Node">Node</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>The node at the front of the list (new node if empty, input
+node otherwise).</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="static-function-_remove">
     <span class="access" data-ice="access">private</span>
     
@@ -2587,11 +3282,11 @@ comes next in the iteration.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/_remove.js.html#lineNumber13">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/_remove.js.html#lineNumber14">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import _remove from &apos;<span><a href="file/src/_remove.js.html#lineNumber13">@data-structure-algebra/doubly-linked-list/src/_remove.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import _remove from &apos;<span><a href="file/src/_remove.js.html#lineNumber14">@data-structure-algebra/doubly-linked-list/src/_remove.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Removes input <span><a href="function/index.html#static-function-Node">Node</a></span> from its list. Cannot be first or last, use
@@ -3374,6 +4069,87 @@ smaller than the length of the list.</p>
 </div>
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-_unshift">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_unshift</span><span class="code" data-ice="signature">(x: <span><a href="function/index.html#static-function-Node">Node</a></span>, value: <span>any</span>): <span><a href="function/index.html#static-function-Node">Node</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/_unshift.js.html#lineNumber11">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import _unshift from &apos;<span><a href="file/src/_unshift.js.html#lineNumber11">@data-structure-algebra/doubly-linked-list/src/_unshift.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>Unshift value to list.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">x</td>
+      <td data-ice="type" class="code"><span><a href="function/index.html#static-function-Node">Node</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>First node of first input list (can be null).</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">value</td>
+      <td data-ice="type" class="code"><span>any</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Value to unshift.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="function/index.html#static-function-Node">Node</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>The node at the front of the list (hence, the new node).</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 

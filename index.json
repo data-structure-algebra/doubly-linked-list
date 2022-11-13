@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/Node.js",
-    "content": "/**\n * Base node class.\n *\n * @class\n * @param {any} value The value to hold.\n */\nexport default function Node(value) {\n\t/** @member {any} The value/key held by this node. */\n\tthis.value = value;\n\t/** @member {Node} Pointer to previous (left) sibling */\n\tthis.prev = null;\n\t/** @member {Node} Pointer to next (right) sibling */\n\tthis.next = null;\n}\n",
+    "content": "/**\n * Base node class.\n *\n * @class\n * @param {any} value The value to hold.\n * @param {Node|null} prev The value to hold.\n * @param {Node|null} next The value to hold.\n */\n// eslint-disable-next-line unicorn/prevent-abbreviations\nexport default function Node(value, prev, next) {\n\t/** @member {any} The value/key held by this node. */\n\tthis.value = value;\n\t/** @member {Node|null} Pointer to previous (left) sibling */\n\tthis.prev = prev;\n\t/** @member {Node|null} Pointer to next (right) sibling */\n\tthis.next = next;\n}\n",
     "static": true,
     "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/Node.js",
     "access": "public",
@@ -588,7 +588,7 @@
     "importPath": "@data-structure-algebra/doubly-linked-list/src/Node.js",
     "importStyle": "Node",
     "description": "Base node class.",
-    "lineNumber": 7,
+    "lineNumber": 10,
     "unknown": [
       {
         "tagName": "@class",
@@ -605,6 +605,28 @@
         "optional": false,
         "name": "value",
         "description": "The value to hold."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Node",
+          "null"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "prev",
+        "description": "The value to hold."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Node",
+          "null"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "next",
+        "description": "The value to hold."
       }
     ],
     "return": null
@@ -613,7 +635,7 @@
     "__docId__": 50,
     "kind": "file",
     "name": "src/_concat.js",
-    "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * Concatenate two input lists.\n *\n * @param {Node} z Last node of first input list.\n * @param {Node} y First node of second input list.\n */\nexport default function _concat(z, y) {\n\tassert(z instanceof Node && z.next === null);\n\tassert(y instanceof Node && y.prev === null);\n\tz.next = y;\n\ty.prev = z;\n}\n",
+    "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * Concatenate two input lists.\n *\n * @param {Node} z Last node of first input list.\n * @param {Node} y First node of second input list.\n */\nexport default function _concat(z, y) {\n\tassert(z instanceof Node);\n\tassert(y instanceof Node);\n\tz.next = y;\n\ty.prev = z;\n}\n",
     "static": true,
     "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/_concat.js",
     "access": "public",
@@ -662,6 +684,285 @@
   {
     "__docId__": 52,
     "kind": "file",
+    "name": "src/_erase.js",
+    "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _concat from './_concat.js';\n\n/**\n * Erase range [x, y) from list. Range cannot be empty.\n *\n * @param {Node} x Inclusive beginning of range to erase.\n * @param {Node} y Exclusive end of range to erase.\n */\nexport default function _erase(x, y) {\n\tassert(x instanceof Node);\n\t_concat(x.prev, y);\n}\n",
+    "static": true,
+    "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/_erase.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 53,
+    "kind": "function",
+    "name": "_erase",
+    "memberof": "src/_erase.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/_erase.js~_erase",
+    "access": "private",
+    "export": true,
+    "importPath": "@data-structure-algebra/doubly-linked-list/src/_erase.js",
+    "importStyle": "_erase",
+    "description": "Erase range [x, y) from list. Range cannot be empty.",
+    "lineNumber": 11,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": "Inclusive beginning of range to erase."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y",
+        "description": "Exclusive end of range to erase."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 54,
+    "kind": "file",
+    "name": "src/_extend.js",
+    "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _push from './_push.js';\n\n/**\n * Extend a list with an iterable.\n *\n * @param {Node} z The last node of the list to extend.\n * @param {Iterable} iterable The input iterable.\n * @return {Node} Last node of the extended list.\n */\nexport default function _extend(z, iterable) {\n\tassert(z instanceof Node);\n\tlet y = z;\n\n\tfor (const value of iterable) {\n\t\ty = _push(y, value);\n\t}\n\n\treturn y;\n}\n",
+    "static": true,
+    "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/_extend.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 55,
+    "kind": "function",
+    "name": "_extend",
+    "memberof": "src/_extend.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/_extend.js~_extend",
+    "access": "private",
+    "export": true,
+    "importPath": "@data-structure-algebra/doubly-linked-list/src/_extend.js",
+    "importStyle": "_extend",
+    "description": "Extend a list with an iterable.",
+    "lineNumber": 12,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "z",
+        "description": "The last node of the list to extend."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Iterable"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "iterable",
+        "description": "The input iterable."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Node"
+      ],
+      "spread": false,
+      "description": "Last node of the extended list."
+    }
+  },
+  {
+    "__docId__": 56,
+    "kind": "file",
+    "name": "src/_insertAfter.js",
+    "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _insertBetween from './_insertBetween.js';\n\n/**\n * _insertAfter.\n *\n * @param {Node} x\n * @param {any} value\n */\nexport default function _insertAfter(x, value) {\n\tassert(x instanceof Node);\n\treturn _insertBetween(x, x.next, value);\n}\n",
+    "static": true,
+    "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/_insertAfter.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 57,
+    "kind": "function",
+    "name": "_insertAfter",
+    "memberof": "src/_insertAfter.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/_insertAfter.js~_insertAfter",
+    "access": "private",
+    "export": true,
+    "importPath": "@data-structure-algebra/doubly-linked-list/src/_insertAfter.js",
+    "importStyle": "_insertAfter",
+    "description": "_insertAfter.",
+    "lineNumber": 11,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "file",
+    "name": "src/_insertBefore.js",
+    "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _insertBetween from './_insertBetween.js';\n\n/**\n * _insertBefore.\n *\n * @param {Node} x\n * @param {any} value\n */\nexport default function _insertBefore(x, value) {\n\tassert(x instanceof Node);\n\treturn _insertBetween(x.prev, x, value);\n}\n",
+    "static": true,
+    "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/_insertBefore.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 59,
+    "kind": "function",
+    "name": "_insertBefore",
+    "memberof": "src/_insertBefore.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/_insertBefore.js~_insertBefore",
+    "access": "private",
+    "export": true,
+    "importPath": "@data-structure-algebra/doubly-linked-list/src/_insertBefore.js",
+    "importStyle": "_insertBefore",
+    "description": "_insertBefore.",
+    "lineNumber": 11,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "file",
+    "name": "src/_insertBetween.js",
+    "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * _insertBetween.\n *\n * @param {Node} x\n * @param {Node} y\n * @param {any} value\n */\nexport default function _insertBetween(x, y, value) {\n\tassert(x instanceof Node);\n\tassert(y instanceof Node);\n\tconst z = new Node(value, x, y);\n\tx.next = z;\n\ty.prev = z;\n\treturn z;\n}\n",
+    "static": true,
+    "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/_insertBetween.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 61,
+    "kind": "function",
+    "name": "_insertBetween",
+    "memberof": "src/_insertBetween.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/_insertBetween.js~_insertBetween",
+    "access": "private",
+    "export": true,
+    "importPath": "@data-structure-algebra/doubly-linked-list/src/_insertBetween.js",
+    "importStyle": "_insertBetween",
+    "description": "_insertBetween.",
+    "lineNumber": 11,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "file",
     "name": "src/_iter.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * Generator of nodes in list in order. You are allowed to edit the current\n * node.\n *\n * /!\\ Modifying the next pointer of the current node will NOT change which\n * node comes next in the iteration.\n *\n * @param {Node} first First node of the list.\n * @return {IterableIterator<Node>} Yields nodes of a list in order.\n */\nexport default function* _iter(first) {\n\tassert(first instanceof Node);\n\tlet next = first;\n\n\tdo {\n\t\tconst x = next;\n\t\tnext = x.next; // Compute next before yielding.\n\t\tyield x; // Necessary ?\n\t} while (next !== null);\n}\n",
     "static": true,
@@ -671,7 +972,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 53,
+    "__docId__": 63,
     "kind": "function",
     "name": "_iter",
     "memberof": "src/_iter.js",
@@ -707,7 +1008,7 @@
     }
   },
   {
-    "__docId__": 54,
+    "__docId__": 64,
     "kind": "file",
     "name": "src/_iter_fast.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * Generator of nodes in list in order. The list cannot be empty. You should\n * not modify the current node's next pointer unless you know what you are\n * doing.\n *\n * /!\\ Modifying the next pointer of the current node will change which node\n * comes next in the iteration.\n *\n * @param {Node} first First node of the list.\n * @return {IterableIterator<Node>} Yields nodes of a list in order.\n */\nexport default function* _iter_fast(first) {\n\tassert(first instanceof Node);\n\tlet next = first;\n\n\tdo {\n\t\tyield next;\n\t\tnext = next.next;\n\t} while (next !== null);\n}\n",
@@ -718,7 +1019,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 55,
+    "__docId__": 65,
     "kind": "function",
     "name": "_iter_fast",
     "memberof": "src/_iter_fast.js",
@@ -754,7 +1055,7 @@
     }
   },
   {
-    "__docId__": 56,
+    "__docId__": 66,
     "kind": "file",
     "name": "src/_last.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * Returns the last node of a list. The list cannot be empty.\n *\n * @param {Node} first First node of the list.\n * @return {Node} Last node of the list.\n */\nexport default function _last(first) {\n\tassert(first instanceof Node);\n\tlet next = first;\n\n\twhile (next.next !== null) {\n\t\tnext = next.next;\n\t}\n\n\treturn next;\n}\n",
@@ -765,7 +1066,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 57,
+    "__docId__": 67,
     "kind": "function",
     "name": "_last",
     "memberof": "src/_last.js",
@@ -801,7 +1102,7 @@
     }
   },
   {
-    "__docId__": 58,
+    "__docId__": 68,
     "kind": "file",
     "name": "src/_len.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * Compute the length of a non-empty list.\n *\n * @param {Node} x First node of the input list.\n * @return {number} The length of the input list.\n */\n// eslint-disable-next-line unicorn/prevent-abbreviations\nexport default function _len(x) {\n\tassert(x instanceof Node);\n\tlet n = 1;\n\tlet y = x.next;\n\twhile (y !== null) {\n\t\t++n;\n\t\ty = y.next;\n\t}\n\n\treturn n;\n}\n",
@@ -812,7 +1113,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 59,
+    "__docId__": 69,
     "kind": "function",
     "name": "_len",
     "memberof": "src/_len.js",
@@ -848,7 +1149,7 @@
     }
   },
   {
-    "__docId__": 60,
+    "__docId__": 70,
     "kind": "file",
     "name": "src/_pop.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * Removes last {@link Node} from a non-empty list.\n *\n * @param {Node} x Last node (not null). Cannot be the first node.\n * @return {Node} Last node of new list (not null).\n */\nexport default function _pop(x) {\n\tassert(x instanceof Node);\n\tassert(x.next === null);\n\tconst prev = x.prev; // eslint-disable-line unicorn/prevent-abbreviations\n\tassert(prev !== null);\n\tprev.next = null;\n\treturn prev;\n}\n",
@@ -859,7 +1160,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 61,
+    "__docId__": 71,
     "kind": "function",
     "name": "_pop",
     "memberof": "src/_pop.js",
@@ -895,10 +1196,67 @@
     }
   },
   {
-    "__docId__": 62,
+    "__docId__": 72,
+    "kind": "file",
+    "name": "src/_push.js",
+    "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * Push value to list.\n *\n * @param {Node} z Last node of first input list (can be null).\n * @param {any} value Value to push.\n * @return {Node} The node at the front of the list (new node if empty, input\n * node otherwise).\n */\nexport default function _push(z, value) {\n\tassert(z instanceof Node);\n\tassert(z.next === null);\n\tconst y = new Node(value, z, null);\n\tz.next = y;\n\treturn y;\n}\n",
+    "static": true,
+    "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/_push.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 73,
+    "kind": "function",
+    "name": "_push",
+    "memberof": "src/_push.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/_push.js~_push",
+    "access": "private",
+    "export": true,
+    "importPath": "@data-structure-algebra/doubly-linked-list/src/_push.js",
+    "importStyle": "_push",
+    "description": "Push value to list.",
+    "lineNumber": 12,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "z",
+        "description": "Last node of first input list (can be null)."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "Value to push."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Node"
+      ],
+      "spread": false,
+      "description": "The node at the front of the list (new node if empty, input\nnode otherwise)."
+    }
+  },
+  {
+    "__docId__": 74,
     "kind": "file",
     "name": "src/_remove.js",
-    "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * Removes input {@link Node} from its list. Cannot be first or last, use\n * _shift or _pop instead.\n *\n * /!\\ Pointers in the extracted node are left unchanged.\n * /!\\ <code>x</code> will have dangling pointers after removal if not single element.\n *\n * @param {Node} x Node to remove.\n */\nexport default function _remove(x) {\n\tassert(x instanceof Node);\n\tx.prev.next = x.next;\n\tx.next.prev = x.prev;\n}\n",
+    "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _erase from './_erase.js';\n\n/**\n * Removes input {@link Node} from its list. Cannot be first or last, use\n * _shift or _pop instead.\n *\n * /!\\ Pointers in the extracted node are left unchanged.\n * /!\\ <code>x</code> will have dangling pointers after removal if not single element.\n *\n * @param {Node} x Node to remove.\n */\nexport default function _remove(x) {\n\tassert(x instanceof Node);\n\t_erase(x, x.next);\n}\n",
     "static": true,
     "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/_remove.js",
     "access": "public",
@@ -906,7 +1264,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 63,
+    "__docId__": 75,
     "kind": "function",
     "name": "_remove",
     "memberof": "src/_remove.js",
@@ -919,7 +1277,7 @@
     "importPath": "@data-structure-algebra/doubly-linked-list/src/_remove.js",
     "importStyle": "_remove",
     "description": "Removes input {@link Node} from its list. Cannot be first or last, use\n_shift or _pop instead.\n\n/!\\ Pointers in the extracted node are left unchanged.\n/!\\ <code>x</code> will have dangling pointers after removal if not single element.",
-    "lineNumber": 13,
+    "lineNumber": 14,
     "params": [
       {
         "nullable": null,
@@ -935,7 +1293,7 @@
     "return": null
   },
   {
-    "__docId__": 64,
+    "__docId__": 76,
     "kind": "file",
     "name": "src/_rotate_left.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _rotate_to from './_rotate_to.js';\n\n/**\n * Rotate list to the left k steps. The parameter k must be positive and\n * smaller than the length of the list.\n *\n * @param {Node} x The current first node.\n * @param {Node} z The current last node.\n * @param {number} k MUST be positive and smaller than the length of the list.\n * @return {[Node, Node]} The new first and last nodes.\n */\nexport default function _rotate_left(x, z, k) {\n\tassert(Number.isInteger(k));\n\tassert(k > 0);\n\tassert(x instanceof Node);\n\tassert(x.prev === null);\n\tassert(z instanceof Node);\n\tassert(z.next === null);\n\tassert(x !== z);\n\tlet y = z;\n\twhile (--k) {\n\t\ty = y.prev;\n\t\tassert(y instanceof Node);\n\t}\n\n\tconst w = y.prev;\n\t_rotate_to(x, y, z);\n\treturn [y, w];\n}\n",
@@ -946,7 +1304,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 65,
+    "__docId__": 77,
     "kind": "function",
     "name": "_rotate_left",
     "memberof": "src/_rotate_left.js",
@@ -1002,7 +1360,7 @@
     }
   },
   {
-    "__docId__": 66,
+    "__docId__": 78,
     "kind": "file",
     "name": "src/_rotate_left_modulo.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _rotate_left from './_rotate_left.js';\n\n/**\n * Rotate non-empty list to the left n steps. The parameter n must be positive.\n *\n * @param {Node} x The current first node.\n * @param {Node} z The current last node.\n * @param {number} n List length, MUST be positive.\n * @param {number} k MUST be positive.\n * @return {[Node, Node]} The new first and last nodes.\n */\nexport default function _rotate_left_modulo(x, z, n, k) {\n\tassert(Number.isInteger(n));\n\tassert(n > 0);\n\tassert(Number.isInteger(k));\n\tassert(k > 0);\n\tassert(x instanceof Node);\n\tassert(x.prev === null);\n\tassert(z instanceof Node);\n\tassert(z.next === null);\n\tassert(x !== z);\n\tconst m = k % n;\n\treturn m === 0 ? [x, z] : _rotate_left(x, z, m);\n}\n",
@@ -1013,7 +1371,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 67,
+    "__docId__": 79,
     "kind": "function",
     "name": "_rotate_left_modulo",
     "memberof": "src/_rotate_left_modulo.js",
@@ -1079,7 +1437,7 @@
     }
   },
   {
-    "__docId__": 68,
+    "__docId__": 80,
     "kind": "file",
     "name": "src/_rotate_left_unknown_length.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _rotate_to from './_rotate_to.js';\nimport _rotate_left_modulo from './_rotate_left_modulo.js';\n\n/**\n * Rotate list to the right n steps. The parameter n must be positive.\n *\n * @param {Node} x The current first node.\n * @param {Node} z The current last node.\n * @param {number} k MUST be positive.\n * @return {[Node, Node]} The new first and last nodes.\n */\nexport default function _rotate_left_unknown_length(x, z, k) {\n\tassert(Number.isInteger(k));\n\tassert(k > 0);\n\tassert(x instanceof Node);\n\tassert(x.prev === null);\n\tassert(z instanceof Node);\n\tassert(z.next === null);\n\tassert(x !== z);\n\tlet y = z;\n\tlet l = k;\n\twhile (--l) {\n\t\tif (y === x) {\n\t\t\treturn _rotate_left_modulo(x, z, k - l, k);\n\t\t}\n\n\t\ty = y.prev;\n\t}\n\n\tconst w = y.prev;\n\t_rotate_to(x, y, z);\n\treturn [y, w];\n}\n",
@@ -1090,7 +1448,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 69,
+    "__docId__": 81,
     "kind": "function",
     "name": "_rotate_left_unknown_length",
     "memberof": "src/_rotate_left_unknown_length.js",
@@ -1146,7 +1504,7 @@
     }
   },
   {
-    "__docId__": 70,
+    "__docId__": 82,
     "kind": "file",
     "name": "src/_rotate_right.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _rotate_to from './_rotate_to.js';\n\n/**\n * Rotate list to the right k steps. The parameter k must be positive and\n * smaller than the length of the list.\n *\n * @param {Node} x The current first node.\n * @param {Node} z The current last node.\n * @param {number} k MUST be positive and smaller than the length of the list.\n * @return {[Node, Node]} The new first and last nodes.\n */\nexport default function _rotate_right(x, z, k) {\n\tassert(Number.isInteger(k));\n\tassert(k > 0);\n\tassert(x instanceof Node);\n\tassert(x.prev === null);\n\tassert(z instanceof Node);\n\tassert(z.next === null);\n\tassert(x !== z);\n\tlet y = x;\n\tdo {\n\t\ty = y.next;\n\t\tassert(y instanceof Node);\n\t} while (--k);\n\n\tconst w = y.prev;\n\t_rotate_to(x, y, z);\n\treturn [y, w];\n}\n",
@@ -1157,7 +1515,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 71,
+    "__docId__": 83,
     "kind": "function",
     "name": "_rotate_right",
     "memberof": "src/_rotate_right.js",
@@ -1213,7 +1571,7 @@
     }
   },
   {
-    "__docId__": 72,
+    "__docId__": 84,
     "kind": "file",
     "name": "src/_rotate_right_modulo.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _rotate_right from './_rotate_right.js';\n\n/**\n * Rotate non-empty list to the right n steps. The parameter n must be positive.\n *\n * @param {Node} x The current first node.\n * @param {Node} z The current last node.\n * @param {number} n List length, MUST be positive.\n * @param {number} k MUST be positive.\n * @return {[Node, Node]} The new first and last nodes.\n */\nexport default function _rotate_right_modulo(x, z, n, k) {\n\tassert(Number.isInteger(n));\n\tassert(n > 0);\n\tassert(Number.isInteger(k));\n\tassert(k > 0);\n\tassert(x instanceof Node);\n\tassert(x.prev === null);\n\tassert(z instanceof Node);\n\tassert(z.next === null);\n\tassert(x !== z);\n\tconst m = k % n;\n\treturn m === 0 ? [x, z] : _rotate_right(x, z, m);\n}\n",
@@ -1224,7 +1582,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 73,
+    "__docId__": 85,
     "kind": "function",
     "name": "_rotate_right_modulo",
     "memberof": "src/_rotate_right_modulo.js",
@@ -1290,7 +1648,7 @@
     }
   },
   {
-    "__docId__": 74,
+    "__docId__": 86,
     "kind": "file",
     "name": "src/_rotate_right_unknown_length.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _rotate_to from './_rotate_to.js';\nimport _rotate_right_modulo from './_rotate_right_modulo.js';\n\n/**\n * Rotate list to the right n steps. The parameter n must be positive.\n *\n * @param {Node} x The current first node.\n * @param {Node} z The current last node.\n * @param {number} k MUST be positive.\n * @return {[Node, Node]} The new first and last nodes.\n */\nexport default function _rotate_right_unknown_length(x, z, k) {\n\tassert(Number.isInteger(k));\n\tassert(k > 0);\n\tassert(x instanceof Node);\n\tassert(x.prev === null);\n\tassert(z instanceof Node);\n\tassert(z.next === null);\n\tassert(x !== z);\n\tlet y = x;\n\tlet l = k;\n\tdo {\n\t\tif (y === z) {\n\t\t\treturn _rotate_right_modulo(x, z, k - l + 1, k);\n\t\t}\n\n\t\ty = y.next;\n\t} while (--l);\n\n\tconst w = y.prev;\n\t_rotate_to(x, y, z);\n\treturn [y, w];\n}\n",
@@ -1301,7 +1659,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 75,
+    "__docId__": 87,
     "kind": "function",
     "name": "_rotate_right_unknown_length",
     "memberof": "src/_rotate_right_unknown_length.js",
@@ -1357,7 +1715,7 @@
     }
   },
   {
-    "__docId__": 76,
+    "__docId__": 88,
     "kind": "file",
     "name": "src/_rotate_to.js",
     "content": "import _split from './_split.js';\nimport _concat from './_concat.js';\n\nexport default function _rotate_to(x, y, z) {\n\t_split(y);\n\t_concat(z, x);\n}\n",
@@ -1368,7 +1726,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 77,
+    "__docId__": 89,
     "kind": "function",
     "name": "_rotate_to",
     "memberof": "src/_rotate_to.js",
@@ -1406,7 +1764,7 @@
     "return": null
   },
   {
-    "__docId__": 78,
+    "__docId__": 90,
     "kind": "file",
     "name": "src/_shift.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * Removes first {@link Node} from a non-empty list.\n *\n * @param {Node} x First node (not null). Cannot be the last node.\n * @return {Node} New list (not null).\n */\nexport default function _shift(x) {\n\tassert(x instanceof Node);\n\tassert(x.prev === null);\n\tconst next = x.next;\n\tassert(next !== null);\n\tnext.prev = null;\n\treturn next;\n}\n",
@@ -1417,7 +1775,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 79,
+    "__docId__": 91,
     "kind": "function",
     "name": "_shift",
     "memberof": "src/_shift.js",
@@ -1453,7 +1811,7 @@
     }
   },
   {
-    "__docId__": 80,
+    "__docId__": 92,
     "kind": "file",
     "name": "src/_split.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * Split a list at {@link Node} x.\n *\n * /!\\ The node to split at cannot be the first of the list.\n *\n * @param {Node} x Node to split at.\n */\nexport default function _split(x) {\n\tassert(x instanceof Node);\n\tassert(x.prev instanceof Node);\n\tx.prev.next = null;\n\tx.prev = null;\n}\n",
@@ -1464,7 +1822,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 81,
+    "__docId__": 93,
     "kind": "function",
     "name": "_split",
     "memberof": "src/_split.js",
@@ -1493,7 +1851,64 @@
     "return": null
   },
   {
-    "__docId__": 82,
+    "__docId__": 94,
+    "kind": "file",
+    "name": "src/_unshift.js",
+    "content": "import assert from 'assert';\nimport Node from './Node.js';\n\n/**\n * Unshift value to list.\n *\n * @param {Node} x First node of first input list (can be null).\n * @param {any} value Value to unshift.\n * @return {Node} The node at the front of the list (hence, the new node).\n */\nexport default function _unshift(x, value) {\n\tassert(x instanceof Node);\n\tassert(x.prev === null);\n\tconst y = new Node(value, null, x);\n\tx.prev = y;\n\treturn y;\n}\n",
+    "static": true,
+    "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/_unshift.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 95,
+    "kind": "function",
+    "name": "_unshift",
+    "memberof": "src/_unshift.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/_unshift.js~_unshift",
+    "access": "private",
+    "export": true,
+    "importPath": "@data-structure-algebra/doubly-linked-list/src/_unshift.js",
+    "importStyle": "_unshift",
+    "description": "Unshift value to list.",
+    "lineNumber": 11,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Node"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": "First node of first input list (can be null)."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "Value to unshift."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Node"
+      ],
+      "spread": false,
+      "description": "The node at the front of the list (hence, the new node)."
+    }
+  },
+  {
+    "__docId__": 96,
     "kind": "file",
     "name": "src/concat.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _concat from './_concat.js';\n\n/**\n * Concatenate two input lists.\n *\n * @param {Node} x First node of first input list (can be null).\n * @param {Node} z Last node of first input list (can be null).\n * @param {Node} y First node of second input list (can be null).\n * @return {Node} First node of the output list (or null if empty).\n */\nexport default function concat(x, z, y) {\n\tif (x === null) {\n\t\tassert(z === null);\n\t\treturn y;\n\t}\n\n\tassert(x instanceof Node);\n\tassert(z instanceof Node);\n\tif (y === null) return x;\n\tassert(y instanceof Node);\n\t_concat(z, y);\n\treturn x;\n}\n",
@@ -1504,7 +1919,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 83,
+    "__docId__": 97,
     "kind": "function",
     "name": "concat",
     "memberof": "src/concat.js",
@@ -1560,7 +1975,7 @@
     }
   },
   {
-    "__docId__": 84,
+    "__docId__": 98,
     "kind": "file",
     "name": "src/empty.js",
     "content": "/**\n * Return an empty list.\n *\n * @return {Node} The empty list.\n */\nexport default function empty() {\n\treturn null;\n}\n",
@@ -1571,7 +1986,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 85,
+    "__docId__": 99,
     "kind": "function",
     "name": "empty",
     "memberof": "src/empty.js",
@@ -1596,10 +2011,10 @@
     "params": []
   },
   {
-    "__docId__": 86,
+    "__docId__": 100,
     "kind": "file",
     "name": "src/from.js",
-    "content": "import Node from './Node.js';\nimport _concat from './_concat.js';\n\n/**\n * Creates a list from an input iterable.\n *\n * @param {Iterable} iterable The input iterable.\n * @return {Node} First node of the newly created list (or null if empty list).\n */\nexport default function from(iterable) {\n\tconst it = iterable[Symbol.iterator]();\n\tconst event = it.next();\n\n\tif (event.done) return null;\n\n\tconst first = new Node(event.value);\n\tlet last = first;\n\n\tfor (const value of it) {\n\t\tconst next = new Node(value);\n\t\t_concat(last, next);\n\t\tlast = next;\n\t}\n\n\treturn first;\n}\n",
+    "content": "import Node from './Node.js';\nimport _extend from './_extend.js';\n\n/**\n * Creates a list from an input iterable.\n *\n * @param {Iterable} iterable The input iterable.\n * @return {Node} First node of the newly created list (or null if empty list).\n */\nexport default function from(iterable) {\n\tconst it = iterable[Symbol.iterator]();\n\tconst event = it.next();\n\n\tif (event.done) return null;\n\n\tconst first = new Node(event.value, null, null);\n\t_extend(first, it);\n\treturn first;\n}\n",
     "static": true,
     "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/from.js",
     "access": "public",
@@ -1607,7 +2022,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 87,
+    "__docId__": 101,
     "kind": "function",
     "name": "from",
     "memberof": "src/from.js",
@@ -1643,10 +2058,10 @@
     }
   },
   {
-    "__docId__": 88,
+    "__docId__": 102,
     "kind": "file",
     "name": "src/index.js",
-    "content": "export {default as Node} from './Node.js';\nexport {default as _concat} from './_concat.js';\nexport {default as _iter} from './_iter.js';\nexport {default as _iter_fast} from './_iter_fast.js';\nexport {default as _last} from './_last.js';\nexport {default as _len} from './_len.js';\nexport {default as _pop} from './_pop.js';\nexport {default as _remove} from './_remove.js';\nexport {default as _rotate_left} from './_rotate_left.js';\nexport {default as _rotate_left_modulo} from './_rotate_left_modulo.js';\nexport {default as _rotate_left_unknown_length} from './_rotate_left_unknown_length.js';\nexport {default as _rotate_right} from './_rotate_right.js';\nexport {default as _rotate_right_modulo} from './_rotate_right_modulo.js';\nexport {default as _rotate_right_unknown_length} from './_rotate_right_unknown_length.js';\nexport {default as _rotate_to} from './_rotate_to.js';\nexport {default as _shift} from './_shift.js';\nexport {default as _split} from './_split.js';\nexport {default as concat} from './concat.js';\nexport {default as empty} from './empty.js';\nexport {default as from} from './from.js';\nexport {default as iter} from './iter.js';\nexport {default as last} from './last.js';\nexport {default as len} from './len.js';\nexport {default as pop} from './pop.js';\nexport {default as push} from './push.js';\nexport {default as rotate_left} from './rotate_left.js';\nexport {default as rotate_right} from './rotate_right.js';\nexport {default as shift} from './shift.js';\nexport {default as split} from './split.js';\nexport {default as unshift} from './unshift.js';\nexport {default as values} from './values.js';\n",
+    "content": "export {default as Node} from './Node.js';\nexport {default as _concat} from './_concat.js';\nexport {default as _erase} from './_erase.js';\nexport {default as _extend} from './_extend.js';\nexport {default as _insertAfter} from './_insertAfter.js';\nexport {default as _insertBefore} from './_insertBefore.js';\nexport {default as _insertBetween} from './_insertBetween.js';\nexport {default as _iter} from './_iter.js';\nexport {default as _iter_fast} from './_iter_fast.js';\nexport {default as _last} from './_last.js';\nexport {default as _len} from './_len.js';\nexport {default as _pop} from './_pop.js';\nexport {default as _push} from './_push.js';\nexport {default as _remove} from './_remove.js';\nexport {default as _rotate_left} from './_rotate_left.js';\nexport {default as _rotate_left_modulo} from './_rotate_left_modulo.js';\nexport {default as _rotate_left_unknown_length} from './_rotate_left_unknown_length.js';\nexport {default as _rotate_right} from './_rotate_right.js';\nexport {default as _rotate_right_modulo} from './_rotate_right_modulo.js';\nexport {default as _rotate_right_unknown_length} from './_rotate_right_unknown_length.js';\nexport {default as _rotate_to} from './_rotate_to.js';\nexport {default as _shift} from './_shift.js';\nexport {default as _split} from './_split.js';\nexport {default as _unshift} from './_unshift.js';\nexport {default as concat} from './concat.js';\nexport {default as empty} from './empty.js';\nexport {default as from} from './from.js';\nexport {default as iter} from './iter.js';\nexport {default as last} from './last.js';\nexport {default as len} from './len.js';\nexport {default as pop} from './pop.js';\nexport {default as push} from './push.js';\nexport {default as rotate_left} from './rotate_left.js';\nexport {default as rotate_right} from './rotate_right.js';\nexport {default as shift} from './shift.js';\nexport {default as split} from './split.js';\nexport {default as unshift} from './unshift.js';\nexport {default as values} from './values.js';\n",
     "static": true,
     "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/index.js",
     "access": "public",
@@ -1654,7 +2069,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 89,
+    "__docId__": 103,
     "kind": "file",
     "name": "src/iter.js",
     "content": "import assert from 'assert';\nimport _iter from './_iter.js';\nimport Node from './Node.js';\n\n/**\n * Generator of nodes in list in order.\n *\n * @param {Node} first First node of the list (can be null).\n * @return {IterableIterator<Node>}\n */\nexport default function* iter(first) {\n\tassert(first === null || first instanceof Node);\n\tif (first !== null) yield* _iter(first);\n}\n",
@@ -1665,7 +2080,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 90,
+    "__docId__": 104,
     "kind": "function",
     "name": "iter",
     "memberof": "src/iter.js",
@@ -1701,7 +2116,7 @@
     }
   },
   {
-    "__docId__": 91,
+    "__docId__": 105,
     "kind": "file",
     "name": "src/last.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _last from './_last.js';\n\n/**\n * Returns the last node of a list.\n *\n * @param {Node} first First node of the list.\n * @return {Node} Last node of the list.\n */\nexport default function last(first) {\n\tassert(first === null || first instanceof Node);\n\treturn first === null ? null : _last(first);\n}\n",
@@ -1712,7 +2127,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 92,
+    "__docId__": 106,
     "kind": "function",
     "name": "last",
     "memberof": "src/last.js",
@@ -1748,7 +2163,7 @@
     }
   },
   {
-    "__docId__": 93,
+    "__docId__": 107,
     "kind": "file",
     "name": "src/len.js",
     "content": "import assert from 'assert';\nimport _len from './_len.js';\nimport Node from './Node.js';\n\n/**\n * Compute the length of a list (can be empty).\n *\n * @param {Node} x First node of the input list (can be null).\n * @return {number} The length of the input list.\n */\n// eslint-disable-next-line unicorn/prevent-abbreviations\nconst len = (x) => {\n\tassert(x === null || x instanceof Node);\n\treturn x === null ? 0 : _len(x);\n};\n\nexport default len;\n",
@@ -1759,7 +2174,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 94,
+    "__docId__": 108,
     "kind": "function",
     "name": "len",
     "memberof": "src/len.js",
@@ -1795,7 +2210,7 @@
     }
   },
   {
-    "__docId__": 95,
+    "__docId__": 109,
     "kind": "file",
     "name": "src/pop.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _pop from './_pop.js';\n\n/**\n * Removes last {@link Node} from a list. Throws if input list is empty.\n *\n * @param {Node} x Last node.\n * @return {[Node, Node]} Last node of new list (possibly null) and removed node.\n */\nexport default function pop(x) {\n\tif (x === null) throw new Error('input list is empty');\n\tassert(x instanceof Node);\n\treturn [x.prev === null ? null : _pop(x), x];\n}\n",
@@ -1806,7 +2221,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 96,
+    "__docId__": 110,
     "kind": "function",
     "name": "pop",
     "memberof": "src/pop.js",
@@ -1842,10 +2257,10 @@
     }
   },
   {
-    "__docId__": 97,
+    "__docId__": 111,
     "kind": "file",
     "name": "src/push.js",
-    "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _concat from './_concat.js';\n\n/**\n * Push value to list.\n *\n * @param {Node} x First node of first input list (can be null).\n * @param {Node} z Last node of first input list (can be null).\n * @param {any} value Value to push.\n * @return {Node} The node at the front of the list (new node if empty, input\n * node otherwise).\n */\nexport default function push(x, z, value) {\n\tif (x === null) return new Node(value);\n\tassert(x instanceof Node);\n\tassert(z instanceof Node);\n\tassert(z.next === null);\n\tconst y = new Node(value);\n\t_concat(z, y);\n\treturn x;\n}\n",
+    "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _push from './_push.js';\n\n/**\n * Push value to list.\n *\n * @param {Node} x First node of first input list (can be null).\n * @param {Node} z Last node of first input list (can be null).\n * @param {any} value Value to push.\n * @return {Node} The node at the front of the list (new node if empty, input\n * node otherwise).\n */\nexport default function push(x, z, value) {\n\tif (x === null) return new Node(value, null, null);\n\tassert(x instanceof Node);\n\t_push(z, value);\n\treturn x;\n}\n",
     "static": true,
     "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/push.js",
     "access": "public",
@@ -1853,7 +2268,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 98,
+    "__docId__": 112,
     "kind": "function",
     "name": "push",
     "memberof": "src/push.js",
@@ -1909,7 +2324,7 @@
     }
   },
   {
-    "__docId__": 99,
+    "__docId__": 113,
     "kind": "file",
     "name": "src/rotate_left.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport rotate_right from './rotate_right.js';\n\n/**\n * Do nothing if x is empty or n is zero.\n * Rotate left n steps if n is positive.\n * Rotate right n steps if n is negative.\n *\n * @param {Node} x The current first node.\n * @param {Node} z The current last node.\n * @param {number} n\n * @return {[Node, Node]} The new first and last node.\n */\nconst rotate_left = (x, z, n) => {\n\tassert(Number.isInteger(n));\n\tassert(x === null || x instanceof Node);\n\tassert(z === null || z instanceof Node);\n\treturn rotate_right(x, z, -n);\n};\n\nexport default rotate_left;\n",
@@ -1920,7 +2335,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 100,
+    "__docId__": 114,
     "kind": "function",
     "name": "rotate_left",
     "memberof": "src/rotate_left.js",
@@ -1976,7 +2391,7 @@
     }
   },
   {
-    "__docId__": 101,
+    "__docId__": 115,
     "kind": "file",
     "name": "src/rotate_right.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _rotate_left_unknown_length from './_rotate_left_unknown_length.js';\nimport _rotate_right_unknown_length from './_rotate_right_unknown_length.js';\n\n/**\n * Do nothing if x is empty or n is zero.\n * Rotate right n steps if n is positive.\n * Rotate left n steps if n is negative.\n *\n * @param {Node} x The current first node.\n * @param {Node} z The current last node.\n * @param {number} n\n * @return {[Node, Node]} The new first and last node.\n */\nexport default function rotate_right(x, z, n) {\n\tassert(Number.isInteger(n));\n\tif (x === z) {\n\t\t// NOTE This takes care of x === null => z === null.\n\t\treturn [x, z];\n\t}\n\n\tassert(x instanceof Node);\n\tassert(z instanceof Node);\n\treturn n === 0\n\t\t? [x, z]\n\t\t: n > 0\n\t\t? _rotate_right_unknown_length(x, z, n)\n\t\t: _rotate_left_unknown_length(x, z, -n);\n}\n",
@@ -1987,7 +2402,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 102,
+    "__docId__": 116,
     "kind": "function",
     "name": "rotate_right",
     "memberof": "src/rotate_right.js",
@@ -2043,7 +2458,7 @@
     }
   },
   {
-    "__docId__": 103,
+    "__docId__": 117,
     "kind": "file",
     "name": "src/shift.js",
     "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _shift from './_shift.js';\n\n/**\n * Removes first {@link Node} from a list. Throws if input list is empty.\n *\n * @param {Node} x First node .\n * @return {[Node, Node]} New list (possibly null) and removed node.\n */\nexport default function shift(x) {\n\tif (x === null) throw new Error('input list is empty');\n\tassert(x instanceof Node);\n\treturn [x.next === null ? null : _shift(x), x];\n}\n",
@@ -2054,7 +2469,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 104,
+    "__docId__": 118,
     "kind": "function",
     "name": "shift",
     "memberof": "src/shift.js",
@@ -2090,10 +2505,10 @@
     }
   },
   {
-    "__docId__": 105,
+    "__docId__": 119,
     "kind": "file",
     "name": "src/split.js",
-    "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _split from './_split.js';\n\n/**\n * Split a list at a {@link Node}.\n *\n * @param {Node} x First node of the list.\n * @param {Node} z Node to split at.\n */\nexport default function split(x, z) {\n\tassert(x instanceof Node);\n\tassert(z instanceof Node);\n\tif (x === z) {\n\t\treturn [null, x];\n\t}\n\n\t_split(z);\n\treturn [x, z];\n}\n",
+    "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _split from './_split.js';\n\n/**\n * Split a list at a {@link Node}.\n *\n * @param {Node} x First node of the list.\n * @param {Node} z Node to split at.\n */\nexport default function split(x, z) {\n\tif (x === z) {\n\t\treturn [null, x];\n\t}\n\n\tassert(x instanceof Node);\n\tif (z === null) {\n\t\treturn [x, null];\n\t}\n\n\tassert(z instanceof Node);\n\t_split(z);\n\treturn [x, z];\n}\n",
     "static": true,
     "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/split.js",
     "access": "public",
@@ -2101,7 +2516,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 106,
+    "__docId__": 120,
     "kind": "function",
     "name": "split",
     "memberof": "src/split.js",
@@ -2144,10 +2559,10 @@
     }
   },
   {
-    "__docId__": 107,
+    "__docId__": 121,
     "kind": "file",
     "name": "src/unshift.js",
-    "content": "import assert from 'assert';\nimport Node from './Node.js';\nimport _concat from './_concat.js';\n\n/**\n * Unshift value to list.\n *\n * @param {Node} x First node of first input list (can be null).\n * @param {Object} value Value to unshift.\n * @return {Node} The node at the front of the list (hence, the new node).\n */\nexport default function unshift(x, value) {\n\tif (x === null) return new Node(value);\n\tassert(x instanceof Node);\n\tconst y = new Node(value);\n\t_concat(y, x);\n\treturn y;\n}\n",
+    "content": "import Node from './Node.js';\nimport _unshift from './_unshift.js';\n\n/**\n * Unshift value to list.\n *\n * @param {Node} x First node of first input list (can be null).\n * @param {any} value Value to unshift.\n * @return {Node} The node at the front of the list (hence, the new node).\n */\nexport default function unshift(x, value) {\n\tif (x === null) return new Node(value, null, null);\n\treturn _unshift(x, value);\n}\n",
     "static": true,
     "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/src/unshift.js",
     "access": "public",
@@ -2155,7 +2570,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 108,
+    "__docId__": 122,
     "kind": "function",
     "name": "unshift",
     "memberof": "src/unshift.js",
@@ -2168,7 +2583,7 @@
     "importPath": "@data-structure-algebra/doubly-linked-list/src/unshift.js",
     "importStyle": "unshift",
     "description": "Unshift value to list.",
-    "lineNumber": 12,
+    "lineNumber": 11,
     "params": [
       {
         "nullable": null,
@@ -2183,7 +2598,7 @@
       {
         "nullable": null,
         "types": [
-          "Object"
+          "any"
         ],
         "spread": false,
         "optional": false,
@@ -2201,7 +2616,7 @@
     }
   },
   {
-    "__docId__": 109,
+    "__docId__": 123,
     "kind": "file",
     "name": "src/values.js",
     "content": "import assert from 'assert';\nimport _iter_fast from './_iter_fast.js';\nimport Node from './Node.js';\n\n/**\n * Generator of nodes in list in order.\n *\n * @param {Node} first First node of the list (can be null).\n * @return {IterableIterator<any>}\n */\nexport default function* values(first) {\n\tassert(first === null || first instanceof Node);\n\tif (first !== null) {\n\t\tfor (const x of _iter_fast(first)) yield x.value;\n\t}\n}\n",
@@ -2212,7 +2627,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 110,
+    "__docId__": 124,
     "kind": "function",
     "name": "values",
     "memberof": "src/values.js",
@@ -2257,7 +2672,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"@data-structure-algebra/doubly-linked-list\",\n  \"description\": \"Doubly linked list for JavaScript\",\n  \"version\": \"0.0.1\",\n  \"license\": \"AGPL-3.0\",\n  \"author\": \"make-github-pseudonymous-again\",\n  \"homepage\": \"https://data-structure-algebra.github.io/doubly-linked-list\",\n  \"repository\": {\n    \"url\": \"https://github.com/data-structure-algebra/doubly-linked-list\",\n    \"type\": \"git\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/data-structure-algebra/doubly-linked-list/issues\"\n  },\n  \"keywords\": [\n    \"data\",\n    \"doubly\",\n    \"linked\",\n    \"list\",\n    \"structure\"\n  ],\n  \"sideEffects\": false,\n  \"type\": \"module\",\n  \"source\": \"src/index.js\",\n  \"main\": \"dist/index.cjs\",\n  \"module\": \"dist/index.module.js\",\n  \"esmodule\": \"dist/index.modern.js\",\n  \"umd:main\": \"dist/index.umd.js\",\n  \"unpkg\": \"dist/index.umd.js\",\n  \"exports\": {\n    \".\": {\n      \"browser\": \"./dist/index.module.js\",\n      \"umd\": \"./dist/index.umd.js\",\n      \"require\": \"./dist/index.cjs\",\n      \"default\": \"./dist/index.modern.js\"\n    }\n  },\n  \"files\": [\n    \"dist\"\n  ],\n  \"publishConfig\": {\n    \"access\": \"public\"\n  },\n  \"scripts\": {\n    \"build\": \"NODE_ENV=production microbundle\",\n    \"build-docs\": \"esdoc\",\n    \"build-gh-pages\": \"npm run build-docs\",\n    \"commit-msg\": \"commitlint --edit\",\n    \"cover\": \"NODE_ENV=cover c8 --all --src src --reporter lcov --reporter text-summary --reporter text npm test\",\n    \"debug\": \"NODE_ENV=debug npm run test -- -st --fail-fast\",\n    \"dev\": \"npm run lint-config-and-fix && npm run lint-and-fix && npm run cover -- -- -st --fail-fast\",\n    \"install-hooks\": \"husky install\",\n    \"lint\": \"xo\",\n    \"lint-and-fix\": \"npm run lint -- --fix\",\n    \"lint-config\": \"fixpack --dryRun\",\n    \"lint-config-and-fix\": \"fixpack || fixpack\",\n    \"postinstall\": \"npm run install-hooks\",\n    \"postpublish\": \"pinst --enable\",\n    \"precommit\": \"lint-staged\",\n    \"prepare\": \"npm run build\",\n    \"prepublishOnly\": \"pinst --disable\",\n    \"release\": \"np --message ':hatching_chick: release: Bumping to v%s.'\",\n    \"test\": \"npm run test:src\",\n    \"test-cmd\": \"NODE_LOADER_CONFIG=test/loader/config.js ava\",\n    \"test:cjs\": \"IMPORT_MAP_PATH=test/import-maps/dist/index.json npm run test-cmd\",\n    \"test:dist\": \"npm run test:modern && npm run test:module && npm run test:cjs\",\n    \"test:modern\": \"IMPORT_MAP_PATH=test/import-maps/dist/index.modern.json npm run test-cmd\",\n    \"test:module\": \"IMPORT_MAP_PATH=test/import-maps/dist/index.module.json npm run test-cmd\",\n    \"test:src\": \"IMPORT_MAP_PATH=test/import-maps/src/index.json npm run test-cmd --\"\n  },\n  \"dependencies\": {},\n  \"devDependencies\": {\n    \"@babel/core\": \"7.20.2\",\n    \"@babel/plugin-transform-destructuring\": \"7.20.2\",\n    \"@babel/plugin-transform-for-of\": \"7.18.8\",\n    \"@babel/preset-env\": \"7.20.2\",\n    \"@commitlint/cli\": \"17.2.0\",\n    \"@iterable-iterator/list\": \"^1.0.1\",\n    \"@iterable-iterator/map\": \"^1.0.1\",\n    \"@iterable-iterator/range\": \"^2.1.0\",\n    \"@js-library/commitlint-config\": \"0.0.4\",\n    \"@node-loader/babel\": \"2.0.1\",\n    \"@node-loader/core\": \"2.0.0\",\n    \"@node-loader/import-maps\": \"1.1.0\",\n    \"ava\": \"5.0.1\",\n    \"babel-plugin-transform-remove-console\": \"6.9.4\",\n    \"babel-plugin-unassert\": \"3.2.0\",\n    \"babel-preset-power-assert\": \"3.0.0\",\n    \"c8\": \"7.12.0\",\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"1.0.0\",\n    \"esdoc-inject-script-plugin\": \"1.0.0\",\n    \"esdoc-inject-style-plugin\": \"1.0.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\",\n    \"fixpack\": \"4.0.0\",\n    \"husky\": \"8.0.2\",\n    \"lint-staged\": \"13.0.3\",\n    \"microbundle\": \"0.15.1\",\n    \"np\": \"7.6.2\",\n    \"pinst\": \"3.0.0\",\n    \"power-assert\": \"1.6.1\",\n    \"regenerator-runtime\": \"0.13.10\",\n    \"xo\": \"0.52.4\"\n  },\n  \"ava\": {\n    \"files\": [\n      \"test/src/**/*\"\n    ],\n    \"nodeArguments\": [\n      \"--experimental-loader=@node-loader/core\"\n    ],\n    \"require\": [\n      \"regenerator-runtime/runtime\"\n    ],\n    \"timeout\": \"1m\"\n  },\n  \"babel\": {\n    \"sourceMaps\": true,\n    \"plugins\": [\n      [\n        \"transform-remove-console\",\n        {\n          \"exclude\": [\n            \"log\",\n            \"error\",\n            \"warn\"\n          ]\n        }\n      ]\n    ],\n    \"env\": {\n      \"debug\": {\n        \"sourceMaps\": \"both\",\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ],\n        \"plugins\": [\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"debug\",\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      },\n      \"test\": {\n        \"sourceMaps\": \"both\",\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"cover\": {\n        \"sourceMaps\": \"both\",\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"development\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": [\n                \"defaults\",\n                \"maintained node versions\"\n              ]\n            }\n          ],\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"production\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": [\n                \"defaults\",\n                \"maintained node versions\"\n              ]\n            }\n          ]\n        ],\n        \"plugins\": [\n          \"@babel/plugin-transform-destructuring\",\n          \"@babel/plugin-transform-for-of\",\n          \"babel-plugin-unassert\"\n        ]\n      }\n    }\n  },\n  \"lint-staged\": {\n    \"*.js\": [\n      \"npm run lint-and-fix\"\n    ],\n    \"package.json\": [\n      \"npm run lint-config-and-fix\"\n    ]\n  },\n  \"prettier\": {\n    \"trailingComma\": \"all\"\n  },\n  \"xo\": {\n    \"prettier\": true,\n    \"plugins\": [\n      \"unicorn\"\n    ],\n    \"rules\": {\n      \"camelcase\": \"off\",\n      \"unicorn/prefer-node-protocol\": \"off\",\n      \"unicorn/filename-case\": \"off\"\n    },\n    \"overrides\": [\n      {\n        \"files\": [\n          \"doc/**\"\n        ],\n        \"env\": \"browser\"\n      }\n    ]\n  }\n}\n",
+    "content": "{\n  \"name\": \"@data-structure-algebra/doubly-linked-list\",\n  \"description\": \"Doubly linked list for JavaScript\",\n  \"version\": \"1.0.0\",\n  \"license\": \"AGPL-3.0\",\n  \"author\": \"make-github-pseudonymous-again\",\n  \"homepage\": \"https://data-structure-algebra.github.io/doubly-linked-list\",\n  \"repository\": {\n    \"url\": \"https://github.com/data-structure-algebra/doubly-linked-list\",\n    \"type\": \"git\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/data-structure-algebra/doubly-linked-list/issues\"\n  },\n  \"keywords\": [\n    \"data\",\n    \"doubly\",\n    \"linked\",\n    \"list\",\n    \"structure\"\n  ],\n  \"sideEffects\": false,\n  \"type\": \"module\",\n  \"source\": \"src/index.js\",\n  \"main\": \"dist/index.cjs\",\n  \"module\": \"dist/index.module.js\",\n  \"esmodule\": \"dist/index.modern.js\",\n  \"umd:main\": \"dist/index.umd.js\",\n  \"unpkg\": \"dist/index.umd.js\",\n  \"exports\": {\n    \".\": {\n      \"browser\": \"./dist/index.module.js\",\n      \"umd\": \"./dist/index.umd.js\",\n      \"require\": \"./dist/index.cjs\",\n      \"default\": \"./dist/index.modern.js\"\n    }\n  },\n  \"files\": [\n    \"dist\"\n  ],\n  \"publishConfig\": {\n    \"access\": \"public\"\n  },\n  \"scripts\": {\n    \"build\": \"NODE_ENV=production microbundle\",\n    \"build-docs\": \"esdoc\",\n    \"build-gh-pages\": \"npm run build-docs\",\n    \"commit-msg\": \"commitlint --edit\",\n    \"cover\": \"NODE_ENV=cover c8 --all --src src --reporter lcov --reporter text-summary --reporter text npm test\",\n    \"debug\": \"NODE_ENV=debug npm run test -- -st --fail-fast\",\n    \"dev\": \"npm run lint-config-and-fix && npm run lint-and-fix && npm run cover -- -- -st --fail-fast\",\n    \"install-hooks\": \"husky install\",\n    \"lint\": \"xo\",\n    \"lint-and-fix\": \"npm run lint -- --fix\",\n    \"lint-config\": \"fixpack --dryRun\",\n    \"lint-config-and-fix\": \"fixpack || fixpack\",\n    \"postinstall\": \"npm run install-hooks\",\n    \"postpublish\": \"pinst --enable\",\n    \"precommit\": \"lint-staged\",\n    \"prepare\": \"npm run build\",\n    \"prepublishOnly\": \"pinst --disable\",\n    \"release\": \"np --message ':hatching_chick: release: Bumping to v%s.'\",\n    \"test\": \"npm run test:src\",\n    \"test-cmd\": \"NODE_LOADER_CONFIG=test/loader/config.js ava\",\n    \"test:cjs\": \"IMPORT_MAP_PATH=test/import-maps/dist/index.json npm run test-cmd\",\n    \"test:dist\": \"npm run test:modern && npm run test:module && npm run test:cjs\",\n    \"test:modern\": \"IMPORT_MAP_PATH=test/import-maps/dist/index.modern.json npm run test-cmd\",\n    \"test:module\": \"IMPORT_MAP_PATH=test/import-maps/dist/index.module.json npm run test-cmd\",\n    \"test:src\": \"IMPORT_MAP_PATH=test/import-maps/src/index.json npm run test-cmd --\"\n  },\n  \"dependencies\": {},\n  \"devDependencies\": {\n    \"@babel/core\": \"7.20.2\",\n    \"@babel/plugin-transform-destructuring\": \"7.20.2\",\n    \"@babel/plugin-transform-for-of\": \"7.18.8\",\n    \"@babel/preset-env\": \"7.20.2\",\n    \"@commitlint/cli\": \"17.2.0\",\n    \"@iterable-iterator/list\": \"^1.0.1\",\n    \"@iterable-iterator/map\": \"^1.0.1\",\n    \"@iterable-iterator/range\": \"^2.1.0\",\n    \"@js-library/commitlint-config\": \"0.0.4\",\n    \"@node-loader/babel\": \"2.0.1\",\n    \"@node-loader/core\": \"2.0.0\",\n    \"@node-loader/import-maps\": \"1.1.0\",\n    \"ava\": \"5.0.1\",\n    \"babel-plugin-transform-remove-console\": \"6.9.4\",\n    \"babel-plugin-unassert\": \"3.2.0\",\n    \"babel-preset-power-assert\": \"3.0.0\",\n    \"c8\": \"7.12.0\",\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"1.0.0\",\n    \"esdoc-inject-script-plugin\": \"1.0.0\",\n    \"esdoc-inject-style-plugin\": \"1.0.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\",\n    \"fixpack\": \"4.0.0\",\n    \"husky\": \"8.0.2\",\n    \"lint-staged\": \"13.0.3\",\n    \"microbundle\": \"0.15.1\",\n    \"np\": \"7.6.2\",\n    \"pinst\": \"3.0.0\",\n    \"power-assert\": \"1.6.1\",\n    \"regenerator-runtime\": \"0.13.10\",\n    \"xo\": \"0.52.4\"\n  },\n  \"ava\": {\n    \"files\": [\n      \"test/src/**/*\"\n    ],\n    \"nodeArguments\": [\n      \"--experimental-loader=@node-loader/core\"\n    ],\n    \"require\": [\n      \"regenerator-runtime/runtime\"\n    ],\n    \"timeout\": \"1m\"\n  },\n  \"babel\": {\n    \"sourceMaps\": true,\n    \"plugins\": [\n      [\n        \"transform-remove-console\",\n        {\n          \"exclude\": [\n            \"log\",\n            \"error\",\n            \"warn\"\n          ]\n        }\n      ]\n    ],\n    \"env\": {\n      \"debug\": {\n        \"sourceMaps\": \"both\",\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ],\n        \"plugins\": [\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"debug\",\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      },\n      \"test\": {\n        \"sourceMaps\": \"both\",\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"cover\": {\n        \"sourceMaps\": \"both\",\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"development\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": [\n                \"defaults\",\n                \"maintained node versions\"\n              ]\n            }\n          ],\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"production\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": [\n                \"defaults\",\n                \"maintained node versions\"\n              ]\n            }\n          ]\n        ],\n        \"plugins\": [\n          \"@babel/plugin-transform-destructuring\",\n          \"@babel/plugin-transform-for-of\",\n          \"babel-plugin-unassert\"\n        ]\n      }\n    }\n  },\n  \"lint-staged\": {\n    \"*.js\": [\n      \"npm run lint-and-fix\"\n    ],\n    \"package.json\": [\n      \"npm run lint-config-and-fix\"\n    ]\n  },\n  \"prettier\": {\n    \"trailingComma\": \"all\"\n  },\n  \"xo\": {\n    \"prettier\": true,\n    \"plugins\": [\n      \"unicorn\"\n    ],\n    \"rules\": {\n      \"camelcase\": \"off\",\n      \"unicorn/prefer-node-protocol\": \"off\",\n      \"unicorn/filename-case\": \"off\"\n    },\n    \"overrides\": [\n      {\n        \"files\": [\n          \"doc/**\"\n        ],\n        \"env\": \"browser\"\n      }\n    ]\n  }\n}\n",
     "longname": "/home/runner/work/doubly-linked-list/doubly-linked-list/package.json",
     "name": "package.json",
     "static": true,
