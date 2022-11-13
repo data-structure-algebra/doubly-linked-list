@@ -1,7 +1,7 @@
 {
   "name": "@data-structure-algebra/doubly-linked-list",
   "description": "Doubly linked list for JavaScript",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "AGPL-3.0",
   "author": "make-github-pseudonymous-again",
   "homepage": "https://data-structure-algebra.github.io/doubly-linked-list",
