@@ -5,6 +5,7 @@ export {default as _iter_fast} from './_iter_fast.js';
 export {default as _last} from './_last.js';
 export {default as _len} from './_len.js';
 export {default as _pop} from './_pop.js';
+export {default as _push} from './_push.js';
 export {default as _remove} from './_remove.js';
 export {default as _rotate_left} from './_rotate_left.js';
 export {default as _rotate_left_modulo} from './_rotate_left_modulo.js';
@@ -15,6 +16,7 @@ export {default as _rotate_right_unknown_length} from './_rotate_right_unknown_l
 export {default as _rotate_to} from './_rotate_to.js';
 export {default as _shift} from './_shift.js';
 export {default as _split} from './_split.js';
+export {default as _unshift} from './_unshift.js';
 export {default as concat} from './concat.js';
 export {default as empty} from './empty.js';
 export {default as from} from './from.js';

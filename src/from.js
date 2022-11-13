@@ -1,5 +1,5 @@
 import Node from './Node.js';
-import _concat from './_concat.js';
+import _push from './_push.js';
 
 /**
  * Creates a list from an input iterable.
@@ -13,13 +13,11 @@ export default function from(iterable) {
 
 	if (event.done) return null;
 
-	const first = new Node(event.value);
+	const first = new Node(event.value, null, null);
 	let last = first;
 
 	for (const value of it) {
-		const next = new Node(value);
-		_concat(last, next);
-		last = next;
+		last = _push(last, value);
 	}
 
 	return first;
