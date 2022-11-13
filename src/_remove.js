@@ -1,5 +1,6 @@
 import assert from 'assert';
 import Node from './Node.js';
+import _erase from './_erase.js';
 
 /**
  * Removes input {@link Node} from its list. Cannot be first or last, use
@@ -12,6 +13,5 @@ import Node from './Node.js';
  */
 export default function _remove(x) {
 	assert(x instanceof Node);
-	x.prev.next = x.next;
-	x.next.prev = x.prev;
+	_erase(x, x.next);
 }

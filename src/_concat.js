@@ -8,8 +8,8 @@ import Node from './Node.js';
  * @param {Node} y First node of second input list.
  */
 export default function _concat(z, y) {
-	assert(z instanceof Node && z.next === null);
-	assert(y instanceof Node && y.prev === null);
+	assert(z instanceof Node);
+	assert(y instanceof Node);
 	z.next = y;
 	y.prev = z;
 }

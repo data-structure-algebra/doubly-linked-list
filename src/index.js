@@ -1,5 +1,6 @@
 export {default as Node} from './Node.js';
 export {default as _concat} from './_concat.js';
+export {default as _erase} from './_erase.js';
 export {default as _extend} from './_extend.js';
 export {default as _iter} from './_iter.js';
 export {default as _iter_fast} from './_iter_fast.js';
