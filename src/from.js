@@ -1,5 +1,5 @@
 import Node from './Node.js';
-import _push from './_push.js';
+import _extend from './_extend.js';
 
 /**
  * Creates a list from an input iterable.
@@ -14,11 +14,6 @@ export default function from(iterable) {
 	if (event.done) return null;
 
 	const first = new Node(event.value, null, null);
-	let last = first;
-
-	for (const value of it) {
-		last = _push(last, value);
-	}
-
+	_extend(first, it);
 	return first;
 }
