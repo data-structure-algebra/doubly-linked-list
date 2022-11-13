@@ -45,7 +45,7 @@ test(immutability, 'ab', 100);
 test(immutability, 'abc', 0);
 test(immutability, 'abc', -1);
 test(immutability, 'abc', 1);
-test(immutability, 'abc', -100);
+test(immutability, 'abc', -101);
 test(immutability, 'abc', 100);
 test(immutability, list(range(1000)), 0);
 test(immutability, list(range(1000)), -1);
