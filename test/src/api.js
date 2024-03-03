@@ -12,7 +12,7 @@ import {
 	unshift,
 	concat,
 	values,
-} from '../../src/index.js';
+} from '#module';
 
 const toArray = (first) => list(values(first));
 
