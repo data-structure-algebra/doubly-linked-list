@@ -1,4 +1,5 @@
 import assert from 'assert';
+
 import Node from './Node.js';
 import _rotate_left_unknown_length from './_rotate_left_unknown_length.js';
 import _rotate_right_unknown_length from './_rotate_right_unknown_length.js';
@@ -25,6 +26,6 @@ export default function rotate_right(x, z, n) {
 	return n === 0
 		? [x, z]
 		: n > 0
-		? _rotate_right_unknown_length(x, z, n)
-		: _rotate_left_unknown_length(x, z, -n);
+			? _rotate_right_unknown_length(x, z, n)
+			: _rotate_left_unknown_length(x, z, -n);
 }

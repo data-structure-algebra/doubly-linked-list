@@ -1,4 +1,5 @@
 import assert from 'assert';
+
 import Node from './Node.js';
 import _erase from './_erase.js';
 

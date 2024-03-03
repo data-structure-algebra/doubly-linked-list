@@ -1,4 +1,5 @@
 import assert from 'assert';
+
 import Node from './Node.js';
 import _split from './_split.js';
 

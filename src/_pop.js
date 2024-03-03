@@ -1,4 +1,5 @@
 import assert from 'assert';
+
 import Node from './Node.js';
 
 /**
@@ -10,7 +11,7 @@ import Node from './Node.js';
 export default function _pop(x) {
 	assert(x instanceof Node);
 	assert(x.next === null);
-	const prev = x.prev; // eslint-disable-line unicorn/prevent-abbreviations
+	const prev = x.prev;
 	assert(prev !== null);
 	prev.next = null;
 	return prev;

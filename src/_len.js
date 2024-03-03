@@ -1,4 +1,5 @@
 import assert from 'assert';
+
 import Node from './Node.js';
 
 /**
@@ -7,7 +8,7 @@ import Node from './Node.js';
  * @param {Node} x First node of the input list.
  * @return {number} The length of the input list.
  */
-// eslint-disable-next-line unicorn/prevent-abbreviations
+
 export default function _len(x) {
 	assert(x instanceof Node);
 	let n = 1;

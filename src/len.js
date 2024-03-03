@@ -1,6 +1,7 @@
 import assert from 'assert';
-import _len from './_len.js';
+
 import Node from './Node.js';
+import _len from './_len.js';
 
 /**
  * Compute the length of a list (can be empty).
@@ -8,7 +9,7 @@ import Node from './Node.js';
  * @param {Node} x First node of the input list (can be null).
  * @return {number} The length of the input list.
  */
-// eslint-disable-next-line unicorn/prevent-abbreviations
+
 const len = (x) => {
 	assert(x === null || x instanceof Node);
 	return x === null ? 0 : _len(x);

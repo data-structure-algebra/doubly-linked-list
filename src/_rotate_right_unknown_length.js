@@ -1,7 +1,8 @@
 import assert from 'assert';
+
 import Node from './Node.js';
-import _rotate_to from './_rotate_to.js';
 import _rotate_right_modulo from './_rotate_right_modulo.js';
+import _rotate_to from './_rotate_to.js';
 
 /**
  * Rotate list to the right n steps. The parameter n must be positive.
