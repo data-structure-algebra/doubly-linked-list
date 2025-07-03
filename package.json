@@ -70,10 +70,10 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "7.27.7",
-    "@babel/plugin-transform-destructuring": "7.27.7",
+    "@babel/core": "7.28.0",
+    "@babel/plugin-transform-destructuring": "7.28.0",
     "@babel/plugin-transform-for-of": "7.27.1",
-    "@babel/preset-env": "7.27.2",
+    "@babel/preset-env": "7.28.0",
     "@commitlint/cli": "19.8.1",
     "@iterable-iterator/list": "^1.0.1",
     "@iterable-iterator/map": "^1.0.1",
